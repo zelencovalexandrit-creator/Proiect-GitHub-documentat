@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstructPro | Reparații & Design Interior/Exterior</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a3d62 0%, #1e5f8a 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+        }
+        .project-overlay {
+            background: rgba(10, 61, 98, 0.85);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-image:hover .project-overlay {
+            opacity: 1;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header și Navigare -->
+    <header class="sticky top-0 z-50 shadow-lg bg-white">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <div class="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center mr-3">
+                    <i class="fas fa-hammer text-white text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-blue-900">Construct<span class="text-orange-500">Pro</span></h1>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#acasa" class="text-blue-900 font-semibold hover:text-orange-500 transition">Acasă</a>
+                <a href="#servicii" class="text-blue-900 font-semibold hover:text-orange-500 transition">Servicii</a>
+                <a href="#proiecte" class="text-blue-900 font-semibold hover:text-orange-500 transition">Proiecte</a>
+                <a href="#despre" class="text-blue-900 font-semibold hover:text-orange-500 transition">Despre Noi</a>
+                <a href="#contact" class="text-blue-900 font-semibold hover:text-orange-500 transition">Contact</a>
+            </nav>
+
+            <!-- Buton contact desktop -->
+            <div class="hidden md:block">
+                <button id="contactBtn" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition">
+                    Cere Oferta <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-blue-900 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-blue-900">
+            <div class="flex flex-col space-y-4 p-6">
+                <a href="#acasa" class="text-white font-semibold hover:text-orange-300 transition">Acasă</a>
+                <a href="#servicii" class="text-white font-semibold hover:text-orange-300 transition">Servicii</a>
+                <a href="#proiecte" class="text-white font-semibold hover:text-orange-300 transition">Proiecte</a>
+                <a href="#despre" class="text-white font-semibold hover:text-orange-300 transition">Despre Noi</a>
+                <a href="#contact" class="text-white font-semibold hover:text-orange-300 transition">Contact</a>
+                <button id="contactBtnMobile" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition mt-4">
+                    Cere Oferta <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="acasa" class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 mb-12 lg:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Transformăm Casele în Locuințe de Vis</h2>
+                <p class="text-xl mb-8 opacity-90">Specialiști în reparații interioare și exterioare, renovări complete și design interior personalizat. Calitate, profesionalism și respectarea termenelor sunt principiile noastre.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                    <button id="servicesBtn" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg text-lg transition">
+                        Serviciile Noastre <i class="fas fa-tools ml-2"></i>
+                    </button>
+                    <button id="callBtn" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white font-semibold py-4 px-8 rounded-lg text-lg transition">
+                        <i class="fas fa-phone-alt mr-2"></i> Sună acum
+                    </button>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="relative w-full max-w-lg">
+                    <div class="bg-blue-800 rounded-xl p-2 shadow-2xl transform rotate-3">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Renovare interior" class="rounded-lg w-full h-64 object-cover">
+                    </div>
+                    <div class="bg-white rounded-xl p-2 shadow-2xl absolute top-10 right-0 transform -rotate-3 w-4/5">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design exterior" class="rounded-lg w-full h-64 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicii Section -->
+    <section id="servicii" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-blue-900 mb-4">Servicii Complete de Construcții</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Oferim soluții complete pentru toate nevoile dumneavoastră de construcții, reparații și design interior/exterior.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-blue-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Reparații Interioare</h3>
+                    <p class="text-gray-600 mb-6">Renovări complete, tencuieli, zugrăveli, pardoseli, instalații electrice și sanitare, tâmplărie și gips-carton.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Renovări complete apartamente</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Montaj parchet și gresie</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Instalații electrice și sanitare</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-orange-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Reparații Exterioare</h3>
+                    <p class="text-gray-600 mb-6">Reparații fațade, termoizolații, acoperișuri, trotuare, garduri și toate lucrările de exterior pentru case și clădiri.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Reparații fațade și acoperișuri</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Termoizolații exterioare</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Construcții garduri și terase</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-roller text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Design Interior</h3>
+                    <p class="text-gray-600 mb-6">Proiectare personalizată a spațiilor interioare, consultanță în alegerea materialelor, culorilor și mobilierului.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Design interior personalizat</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Consultanță materiale și culori</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Proiectare mobilier pe comandă</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proiecte Recente -->
+    <section id="proiecte" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-blue-900 mb-4">Proiecte Recente</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Explorează câteva dintre proiectele noastre recente de renovare și design interior/exterior.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-image rounded-xl overflow-hidden shadow-lg relative">
+                    <img src="https://galerie.deltastudio.ro/19944000/Images/0x19944000-002-20220531113611752.jpg?tr=w-1920,tr-true,cm-pad_resize" alt="Renovare bucătărie" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold mb-2">Renovare Bucătărie Modernă</h3>
+                        <p class="text-gray-200 mb-4">Renovare completă bucătărie, cu mobilier pe comandă și electrocasnice integrate.</p>
+                        <span class="bg-orange-500 text-white px-4 py-2 rounded-full self-start">Interior</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-image rounded-xl overflow-hidden shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Renovare exterior" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold mb-2">Renovare Fațadă Casă</h3>
+                        <p class="text-gray-200 mb-4">Reparație fațadă cu termoizolație și finisaj modern pentru o casă din zona rurală.</p>
+                        <span class="bg-blue-500 text-white px-4 py-2 rounded-full self-start">Exterior</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-image rounded-xl overflow-hidden shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design living" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold mb-2">Design Living Modern</h3>
+                        <p class="text-gray-200 mb-4">Proiectare completă living cu soluții de depozitare inteligente și iluminat personalizat.</p>
+                        <span class="bg-purple-500 text-white px-4 py-2 rounded-full self-start">Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button id="moreProjectsBtn" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-lg shadow-lg text-lg transition">
+                    Vezi mai multe proiecte <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Despre Noi Section -->
+    <section id="despre" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-4xl font-bold text-blue-900 mb-6">De ce să alegi ConstructPro?</h2>
+                    <p class="text-gray-600 mb-8 text-lg">Cu peste 15 ani de experiență în domeniul construcțiilor, echipa noastră de specialiști a realizat sute de proiecte de succes, oferind soluții personalizate și de calitate superioară.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-award text-blue-700 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">Calitate Garantată</h3>
+                                <p class="text-gray-600">Folosim doar materiale de cea mai bună calitate și lucrăm cu meșteri certificați în domeniul construcțiilor.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-calendar-check text-orange-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">Respectarea Termenelor</h3>
+                                <p class="text-gray-600">Ne asumăm respectarea strictă a termenelor de execuție stabilite în contract.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-handshake text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">Transparență Totală</h3>
+                                <p class="text-gray-600">Oferim devize clare și detaliate, fără costuri ascunse sau suprasolicitări financiare.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white rounded-xl shadow-xl p-8">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Solicită o consultație gratuită</h3>
+                        <form id="consultationForm" class="space-y-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="name">Nume și Prenume</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Introdu numele tău">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="phone">Telefon</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Introdu numărul de telefon">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="service">Serviciul dorit</label>
+                                <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Selectează un serviciu</option>
+                                    <option value="interior">Reparații Interioare</option>
+                                    <option value="exterior">Reparații Exterioare</option>
+                                    <option value="design">Design Interior</option>
+                                    <option value="complet">Renovare Completa</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="message">Descriere proiect</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Descrie pe scurt proiectul tău..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition">
+                                Trimite cererea <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-blue-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Contactează-ne</h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">Suntem aici pentru a răspunde la întrebările tale și a transforma visul tău în realitate.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Informații de contact</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-700 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Adresă</h4>
+                                <p class="opacity-90">Str. Constructorilor nr. 45, Chisinau, Sector 3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-700 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Telefon</h4>
+                                <p class="opacity-90">+373 721 123 456</p>
+                                <p class="opacity-90">+373 372 456 789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-700 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Email</h4>
+                                <p class="opacity-90">office@constructpro.md</p>
+                                <p class="opacity-90">proiecte@constructpro.md</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-700 p-3 rounded-lg mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Program de lucru</h4>
+                                <p class="opacity-90">Luni - Vineri: 8:00 - 18:00</p>
+                                <p class="opacity-90">Sâmbătă: 9:00 - 14:00</p>
+                                <p class="opacity-90">Duminică: Închis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl font-bold mb-6">Locația noastră</h3>
+                    <div class="bg-gray-300 rounded-xl overflow-hidden h-96">
+                        <!-- Map placeholder -->
+                        <div class="w-full h-full flex items-center justify-center bg-gray-200">
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-6xl text-blue-900 mb-4"></i>
+                                <p class="text-blue-900 font-bold text-xl">Harta locației noastre</p>
+                                <p class="text-blue-700">Str. Constructorilor nr. 45, București</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center mr-3">
+                            <i class="fas fa-hammer text-white"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold">Construct<span class="text-orange-500">Pro</span></h2>
+                    </div>
+                    <p class="opacity-80 max-w-md">Specialiști în reparații interioare și exterioare, renovări complete și design interior personalizat.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-800 mt-12 pt-8 text-center opacity-80">
+                <p>&copy; 2023 ConstructPro. Toate drepturile rezervate. | <a href="#" class="text-orange-400 hover:text-orange-300">Politica de confidențialitate</a> | <a href="#" class="text-orange-400 hover:text-orange-300">Termeni și condiții</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal pentru contact -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-blue-900">Solicită ofertă personalizată</h3>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">Completează formularul de mai jos și te vom contacta în maxim 24 de ore pentru a discuta despre proiectul tău.</p>
+            
+            <form id="offerForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-2" for="modalName">Nume și Prenume *</label>
+                    <input type="text" id="modalName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-2" for="modalPhone">Telefon *</label>
+                    <input type="tel" id="modalPhone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-2" for="modalService">Tip de serviciu *</label>
+                    <select id="modalService" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Selectează un serviciu</option>
+                        <option value="interior">Reparații Interioare</option>
+                        <option value="exterior">Reparații Exterioare</option>
+                        <option value="design">Design Interior</option>
+                        <option value="complet">Renovare Completa</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition">
+                    Trimite cererea <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            } else {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('#mobileMenu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
+        
+        // Contact modal functionality
+        const contactBtn = document.getElementById('contactBtn');
+        const contactBtnMobile = document.getElementById('contactBtnMobile');
+        const closeModal = document.getElementById('closeModal');
+        const contactModal = document.getElementById('contactModal');
+        
+        contactBtn.addEventListener('click', () => {
+            contactModal.classList.remove('hidden');
+            contactModal.classList.add('flex');
+        });
+        
+        contactBtnMobile.addEventListener('click', () => {
+            contactModal.classList.remove('hidden');
+            contactModal.classList.add('flex');
+            // Close mobile menu
+            mobileMenu.classList.remove('open');
+            mobileMenuIcon.classList.remove('fa-times');
+            mobileMenuIcon.classList.add('fa-bars');
+        });
+        
+        closeModal.addEventListener('click', () => {
+            contactModal.classList.remove('flex');
+            contactModal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                contactModal.classList.remove('flex');
+                contactModal.classList.add('hidden');
+            }
+        });
+        
+        // Form submission handling
+        const consultationForm = document.getElementById('consultationForm');
+        const offerForm = document.getElementById('offerForm');
+        
+        consultationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Vă mulțumim pentru cerere! Vă vom contacta în cel mai scurt timp posibil.');
+            consultationForm.reset();
+        });
+        
+        offerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Cererea dvs. a fost trimisă cu succes! Vă vom contacta în maxim 24 de ore.');
+            offerForm.reset();
+            contactModal.classList.remove('flex');
+            contactModal.classList.add('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Call button functionality
+        const callBtn = document.getElementById('callBtn');
+        callBtn.addEventListener('click', () => {
+            alert('Apel către +373 721 123 456...');
+        });
+        
+        // Services button functionality
+        const servicesBtn = document.getElementById('servicesBtn');
+        servicesBtn.addEventListener('click', () => {
+            document.querySelector('#servicii').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // More projects button functionality
+        const moreProjectsBtn = document.getElementById('moreProjectsBtn');
+        moreProjectsBtn.addEventListener('click', () => {
+            alert('Aici s-ar încărca mai multe proiecte în versiunea completă a site-ului.');
+        });
+        
+        // Project cards animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe service cards and project images
+        document.querySelectorAll('.service-card, .project-image').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
