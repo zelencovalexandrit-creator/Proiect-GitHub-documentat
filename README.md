@@ -9,10 +9,6 @@ Acesta este un site simplu pentru o companie de construcții, realizat pentru pr
 - **JavaScript (opțional)** – pentru elemente interactive (dacă ai folosit)
 - **Imagini și iconițe** – pentru prezentarea vizuală a serviciilor
 
-## Instrucțiuni instalare
-1. Clonează sau descarcă proiectul din repository:
-   ```bash
-
    
    Exemple de utilizare
 
